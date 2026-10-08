@@ -1,0 +1,2074 @@
+<html>
+
+  <head>
+
+    <meta http-equiv="Content-Type" content="text/html">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+	<meta name="language" content="it">
+
+    <title>CostyCNC - G-code generation software for CNC foam cutter</title>	
+
+    <meta name="keywords" content="image to gcode, program, free, beginners, image to gcode conversion, gcode, CNC styrofoam cutting, styrofoam cutting">
+
+    <meta name="description" content="Transform your images into Gcode with Image to Gcode, a free and user-friendly program designed for beginners.">
+    
+  <link rel="canonical" href="https://www.costycnc.it/tools/image-to-gcode-gcodesender/">
+<link rel="alternate" hreflang="it" href="https://www.costycnc.it/tools/image-to-gcode-gcodesender/">
+<link rel="alternate" hreflang="en" href="https://www.costycnc.it/tools/image-to-gcode-gcodesender/en.html">
+<link rel="alternate" hreflang="x-default" href="https://www.costycnc.it/tools/image-to-gcode-gcodesender/en.html">
+
+    
+
+<!-- Google Tag Manager -->
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+})(window,document,'script','dataLayer','GTM-WPHFPJX');</script>
+
+<!-- End Google Tag Manager -->
+
+
+        
+    <!-- AdSense -->
+
+    <script data-ad-client="ca-pub-7971216328816212" async
+
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+
+
+    <script src="extract.js"></script>
+
+    <script src="potrace2.js"></script>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <style>
+
+      .navbar {
+
+        overflow: hidden;
+
+        background-color: #333;
+
+      }
+
+      .navbar a {
+
+        float: left;
+
+        font-size: 16px;
+
+        color: white;
+
+        text-align: center;
+
+        padding: 14px 16px;
+
+        text-decoration: none;
+
+      }
+
+      .subnav {
+
+        float: left;
+
+        overflow: hidden;
+
+      }
+
+      .subnav .subnavbtn {
+
+        font-size: 16px;
+
+        border: none;
+
+        outline: none;
+
+        color: white;
+
+        padding: 14px 16px;
+
+        background-color: inherit;
+
+        font-family: inherit;
+
+        margin: 0;
+
+      }
+
+      .navbar a:hover,
+
+      .subnav:hover .subnavbtn {
+
+        background-color: green;
+
+      }
+
+      .subnav-content {
+
+        display: none;
+
+        position: absolute;
+
+        left: 0;
+
+        background-color: black;
+
+        width: 100%;
+
+        z-index: 1;
+
+      }
+
+      .subnav-content a {
+
+        float: left;
+
+        color: white;
+
+        text-decoration: none;
+
+      }
+
+      .subnav-content a:hover {
+
+        background-color: #eee;
+
+        color: black;
+
+      }
+
+      .subnav:hover .subnav-content {
+
+        display: block;
+
+      }
+
+      
+
+      	  #mydiv {
+
+	  top:20px;
+
+  position: absolute;
+
+  z-index: 9;
+
+  background-color: #f1f1f1;
+
+  text-align: center;
+
+  border: 1px solid #d3d3d3;
+
+}
+
+#mydivheader {
+
+  padding: 10px;
+
+  cursor: move;
+
+  z-index: 10;
+
+  background-color: #2196F3;
+
+  color: #fff;
+
+}
+
+    </style>
+
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <style>
+
+      .bd-placeholder-img {
+
+        font-size: 1.125rem;
+
+        text-anchor: middle;
+
+        -webkit-user-select: none;
+
+        -moz-user-select: none;
+
+        user-select: none;
+
+      }
+
+      @media (min-width: 768px) {
+
+        .bd-placeholder-img-lg {
+
+          font-size: 3.5rem;
+
+        }
+
+      }
+
+    </style>
+
+    <!-- Custom styles for this template -->
+
+    <link href="carousel.css" rel="stylesheet">
+
+    <script src="d3.v5.min.js"></script>
+
+    
+
+    <style>
+
+     #translateButton {
+
+  rotate: 0deg;
+
+  animation-name: pulse;
+
+  animation-duration: 10s;
+
+  animation-iteration-count: infinite;
+
+}
+
+
+
+@keyframes pulse {
+
+  100% {
+
+    rotate: 360deg;
+
+  }
+
+}   
+
+        
+
+        
+
+    </style>
+
+    
+
+    <!-- Hotjar Tracking Code for cm8 -->
+
+<script>
+
+    (function(h,o,t,j,a,r){
+
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+
+        h._hjSettings={hjid:5159808,hjsv:6};
+
+        a=o.getElementsByTagName('head')[0];
+
+        r=o.createElement('script');r.async=1;
+
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+
+        a.appendChild(r);
+
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+
+</script>
+
+
+
+<!--               17.01.25   youtube videos -->
+
+
+
+<style>
+
+
+
+iframe{
+
+box-shadow: 10px 10px 10px grey;
+
+border-radius: 10px;
+
+}
+
+
+
+.video-csty-container {
+
+  position: relative;
+
+  text-align: center;
+
+}
+
+
+
+.video-csty-container .thumbnails {
+
+  width: 100%; /* Adatta la larghezza in base alle tue esigenze */
+
+  overflow-x: auto;
+
+  white-space: nowrap; /* Impedisce alle parole di andare a capo */
+
+  display: flex;
+
+  justify-content: left;
+
+}
+
+
+
+.video-csty-container .thumbnails img {
+
+    width: 200px;
+
+    height: 112px; /* Proporzioni standard di YouTube */
+
+    margin: 10px;
+
+    cursor: pointer;
+
+    box-shadow: 5px 5px 5px grey;
+
+    border-radius: 5px;
+
+}
+
+
+
+@media only screen and (max-width:601px) {
+
+iframe{
+
+width:350px;
+
+height:250px;
+
+box-shadow: 5px 5px 5px grey;
+
+border-radius: 5px;
+
+}
+
+</style>
+
+
+
+<!--             END  17.01.25   youtube videos -->
+
+
+
+<!--   19.03.2025 END Pagine visitate di recente -->  
+
+  <style>
+
+    /* Stile per il contenitore delle pagine visitate */
+
+    .costycnc-visited-pages {
+
+      width: 100%;
+
+      overflow-x: auto; /* Permette lo scorrimento orizzontale */
+
+      white-space: nowrap; /* Impedisce alle icone di andare a capo */
+
+      padding: 10px;
+
+      border: 1px solid #ddd;
+
+      border-radius: 8px;
+
+      margin-top: 20px;
+
+    }
+
+
+
+    /* Stile per il contenitore delle icone */
+
+    .costycnc-icons-container {
+
+      display: inline-flex; /* Disposizione orizzontale delle icone */
+
+      gap: 10px; /* Spazio tra le icone */
+
+    }
+
+
+
+    /* Stile per ogni icona */
+
+    .costycnc-icon {
+
+      display: inline-block;
+
+      width: 30px; /* Larghezza dell'icona */
+
+      height: 30px; /* Altezza dell'icona */
+
+      background-color: #f1f1f1; /* Colore di sfondo dell'icona */
+
+      border-radius: 12px; /* Bordi arrotondati */
+
+      text-align: center;
+
+      line-height: 30px; /* Centra il testo verticalmente */
+
+      font-size: 18px; /* Dimensione del testo */
+
+      color: #333; /* Colore del testo */
+
+      cursor: pointer;
+
+      transition: background-color 0.3s ease;
+
+    }
+
+
+
+    /* Cambia colore al passaggio del mouse */
+
+    .costycnc-icon:hover {
+
+      background-color: #ddd;
+
+    }
+	
+	.container1 {
+  font-size: 15px; /* Cambia questo valore in base alle tue esigenze */
+  text-align: center;
+}
+
+
+  </style>
+
+ <!--   19.03.2025 END Pagine visitate di recente --> 
+
+ 
+
+ 
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
+
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://costycnc.it/tools/image-to-gcode-gcodesender/#webpage",
+  "url": "https://costycnc.it/tools/image-to-gcode-gcodesender/",
+  "name": "Immagine to G-code e G-code Sender",
+  "description": "Genera percorsi CNC ottimizzati per taglio di polistirolo. Il tool calcola un percorso continuo lungo tutti i path.",
+  "inLanguage": "it",
+  "dateModified": "2026-10-03T15:30:00+01:00",
+  "author": { "@id": "https://costycnc.it/#author" },
+  "publisher": { "@id": "https://costycnc.it/#organization" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://costycnc.it/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Tools",
+        "item": "https://costycnc.it/tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Immagine to G-code e G-code Sender",
+        "item": "https://costycnc.it/tools/image-to-gcode-gcodesender/"
+      }
+    ]
+  },
+  "softwareApplication": {
+    "@type": "WebApplication",
+    "name": "Immagine to G-code e G-code Sender",
+    "url": "https://costycnc.it/tools/image-to-gcode-gcodesender/",
+    "applicationCategory": "GraphicsApplication",
+    "featureList": [
+      "Generazione percorsi CNC ottimizzati per taglio polistirolo",
+      "Percorso continuo lungo tutti i path"
+    ],
+    "operatingSystem": "Web",
+    "softwareVersion": "1.0"
+  }
+}
+</script>
+
+
+
+  </head>
+
+  <body>
+  
+    <div class="navbar">
+
+      <a target="#" href="https://www.costycnc.it">Home</a>
+
+      <a target="#" href="https://www.costycnc.it/editor">Editor</a>
+
+      <a target="#" href="https://www.costycnc.it/tutorial">Tutorial</a>
+
+      <a target="#" href="https://www.costycnc.it/stepmm">Calculate Step per mm</a>      
+
+      <a target="#" href="https://www.costycnc.it/cm9/onda">Onda</a>
+
+      <a target="#" href="https://www.costycnc.it/cm9/dopia">Doppia</a>
+
+      <a target="#" href="https://www.costycnc.it/firmware">Firmware</a>
+
+      <a id="translateButton" href="https://translate.google.com/translate?sl=it&amp;tl=en&amp;u=costycnc.it/cm8" >Translate</a>
+
+    </div>
+	
+	
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="https://www.costycnc.it">Home</a></li>
+    <li class="breadcrumb-item"><a href="https://www.costycnc.it/tools">Tools</a></li>
+    <li class="breadcrumb-item active" aria-current="page">image-to-gcode-gcodesender</li>
+  </ol>
+</nav>
+  
+<section>
+  <div class="container1">
+    <h1>CostyCNC CM8: a CNC program in your browser, not just a converter</h1>
+
+<p>
+  <strong>CostyCNC CM8 runs directly in your browser, with no installation,
+  while providing tools for preparing and controlling CNC hot-wire cutting.</strong>
+  You can create text with or without an outline, resize images,
+  view and edit G-code, set feed rate and temperature,
+  and also control a rotary table.
+</p>
+
+<p>
+  Path generation starts from a raster image. CostyCNC extracts
+  <strong>raw paths made of pixel coordinates</strong> and applies an
+  algorithm that progressively searches for the nearest paths, rotating
+  and joining them at the closest points. The paths are progressively
+  merged until they form <strong>a single continuous path</strong>.
+</p>
+
+<p>
+  The resulting path is then processed through a
+  <strong>modified version of Potrace</strong> to obtain the vector
+  contours used for the subsequent G-code generation.
+</p>
+
+<p>
+  <strong>The fact that CM8 runs in a browser does not mean that it is
+  a simplified program:</strong> image processing, path construction,
+  and G-code generation are performed directly in the web page.
+</p>
+
+  </div>
+</section>
+
+ 
+
+
+
+
+    <br><div class="w3-row-padding">
+
+    <div class="w3-third">
+
+        
+
+      <input type="file" id="flvalue" accept=".bmp,.jpg,.png,.svg" onchange="openFile(event)"><a href="../tutoriale/aiuto-cm8#carica-immagine"><img src="info.jpg" title="Clicca qui per info"></a><br><!-- //23/11/2022 add id -->
+
+	  <input type="checkbox" id="contour" onchange="contoura();" >only contour (need to reload image!!!)<a href="../tutoriale/aiuto-cm8#contorno"><img src="info.jpg" title="Clicca qui per info"></a><hr><!-- //23/11/2022 -->
+
+     
+
+      <!-- dpi= <input id="scaledpi" value="96" onchange="calculeaza()"-->
+
+
+
+        <h4>Rotate Table</h4>
+
+      rotate= <input id="rotate" value="8" onchange="display()">
+
+      <br>step/rotate= <input id="stepr" value="12.8" ><button onclick="turn()">TEST</button>(mini-32)
+
+      <br><input type="checkbox" onchange="display()" id="pr">piano rotante (rotate table) <hr>
+
+      <button onclick="hotwireoff();">Hotwire off</button>
+
+      <input id="hotvalue" type="text" value="500"><br><br>
+
+      <input type="range" min="10" max="1000" step="10" value="500" onchange='hotwireon(this.value);document.getElementById("hotvalue").value=this.value;'><hr>
+
+
+
+    </div>
+
+    <div class="w3-third" align="center">
+
+       Rap x= <input id="raport1" value="1" onchange="calculeaza1()"><a href="../tutoriale/aiuto-cm8#dimensione"><img src="info.jpg" title="Clicca qui per info"></a>
+
+      <br> Rap y= <input id="raport2" value="1" onchange="calculeaza1()" disabled>
+
+      <br>Dim x= <input type="text" id="calcx" onchange="calculeaza()">approximate cm
+
+	  <br> Dim y= <input type="text" id="calcy" onchange="calculeaza()" disabled>approximate cm 
+
+      <br><input type="checkbox" id="due" onchange="check();" checked>rap 
+
+      <hr>
+
+      <h4>DPI:<a href="../tutoriale/aiuto-cm8#dpi"><img src="info.jpg" title="Clicca qui per info"></a></h4>
+
+	  
+
+	      dpi:<select id="scaledpi" onchange="display();localStorage.dpi=this.selectedIndex;console.log('index');console.log(this.selectedIndex);">
+
+		  <option value="96">96</option>
+
+          <option value="72">72</option>
+
+          <option value="120">120</option>
+
+          <option value="300">300</option>
+
+          <option value="171">171(canva.com)</option>
+
+          <option value="1">1</option>
+
+          </select>
+
+          		  <br>
+
+		  custom-dpi<input type="int" value="0" id="custom-dpi" onchange="display();"><hr>
+
+          <script>
+
+		if (localStorage.dpi)
+
+		{
+
+		document.getElementById("scaledpi").selectedIndex = localStorage.dpi;
+
+		}
+
+        </script>
+
+    </div>
+
+    <div class="w3-third w3-center">
+
+      <h4>Gcode: </h4>
+
+	  <script>
+	  		  const gcode_square = `M3 S500 F300
+G21 G90
+G92 X0 Y0
+G01 X0 Y0
+G01 X100 Y0
+G01 X100 Y100
+G01 X0 Y100
+G01 X0 Y0`;
+	  </script> 
+
+      <p><button id="writea" onclick="WriteSerial()" disabled="">Write</button>
+	  <button onclick="costycncdesign(gcode_square);document.getElementById('gcode').value=gcode_square;">
+      <strong>SQUARE</strong>
+    </button></p>
+
+     <p><textarea cols="22" form="usrform1" id="gcode" name="textg" rows="6" onchange='costycncdesign(this.value);document.getElementById("myRanges").click();' ></textarea></p>
+
+     <p><button onclick="saveTextAsFile()">Save gcode</button><button id="pasteBtn">Paste SVG da Inkscape</button></p>
+
+     <p>F(velocita)=<input type="text" id="feedrate" value="500" onchange="display();"></p>
+
+	 <p>S(calore)= <input type="text" id="hotwire" value="1000" onchange="display();"></p>
+
+     
+
+    </div>
+
+    </div>
+
+    <div id="svgdiv"></div>
+
+    <br>
+
+     <script>
+
+async function pasteSvgFromClipboard() {
+
+    try {
+
+        const clipboardItems = await navigator.clipboard.read();
+
+
+
+        for (const item of clipboardItems) {
+
+            if (item.types.includes("image/svg+xml")) {
+
+                const blob = await item.getType("image/svg+xml");
+
+                const svgText = await blob.text();
+
+                const dataUrl = "data:image/svg+xml;base64," + btoa(svgText);
+
+
+
+                // Passa il Data URL a myFunction
+
+                myFunction(dataUrl);
+
+                return; // esce dopo il primo SVG trovato
+
+            }
+
+        }
+
+
+
+        alert("Nessun SVG trovato nella clipboard.");
+
+    } catch (err) {
+
+        console.error("Errore durante lettura clipboard:", err);
+
+        alert("Errore: assicurati di aver copiato un SVG e che il sito sia HTTPS.");
+
+    }
+
+}
+
+
+
+document.getElementById("pasteBtn").addEventListener("click", pasteSvgFromClipboard);
+
+</script>
+
+    <!--/////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+    <div class="w3-row w3-border">
+
+      <div class="w3-green w3-container w3-quarter">
+
+        <!--        08/10/2024     --><hr>
+
+        	  <input  onchange="my();" type="text" placeholder="Write your text here..." name="text" class="input" id="litera">
+
+	  <input type="checkbox" id="nome" checked="" onchange="my();" class="btn1">
+
+	  Name<input type="checkbox" id="contourz" onchange="my();" checked="" class="btn1">
+
+	  Contour
+
+	  
+
+	  <svg height="1200" width="2000" id="svg" xmlns="http://www.w3.org/2000/svg" style="display:none">
+
+  Sorry, your browser does not support inline SVG.
+
+</svg>
+
+
+
+  <hr><input class="slider" style="width:20%;" type="range" min="100" max="800" step="10" value="300" id="myRanges" onchange="my()" ontouchmove="costycnc1(this.value)">
+
+  <button onclick="my();">Create GCODE</button><hr>
+
+        
+
+        <!--        08/10/2024  fine (guarda anche sotto font e collegato a quest!!!)    -->
+
+      </div>
+
+      <div class="w3-container w3-quarter w3-center">
+
+        <h4>Connect to port</h4>
+
+        <p class="w3-small w3-border w3-border-red">Se non funziona,ricarica pagina,ricollega il cavo USB o modifica il baud rate</p>
+
+        <button onclick="stopx=false;connect()">Connect</button>
+
+        <!--button style="color:red" onclick="stopx=true;">STOP</button-->
+
+        <br>
+
+        <br>
+
+        <label>Choose baudrate:</label>
+
+        <select id="baud" onchange="localStorage.baud=this.selectedIndex;">
+
+          <option value="115200">115200</option>
+
+          <option value="9600">9600</option>
+
+          <option value="250000">250000</option>
+
+        </select>
+
+<script>
+
+		if (localStorage.baud)
+
+		{
+
+		document.getElementById("baud").selectedIndex = localStorage.baud;
+
+		}
+
+</script>     
+
+</div>
+
+      <div class="w3-container w3-quarter w3-center">
+
+        <h4>Send to machine</h4>
+
+        <button id="write" onclick="WriteSerial()" disabled>Write</button>
+
+         <button  onclick="simulate();" >Simulate</button>
+
+        <br>
+
+        <br>
+
+        <input type="text" id="lname" value="here need grbl">
+
+      </div>
+
+      <div class="w3-container w3-quarter w3-center">
+
+        <h4>Load gcode</h4>
+
+        <input type='file' accept='.nc,.gcode' onchange='openFile1(event)'>
+
+      <br><br>
+
+	  
+
+	          <label>Precision movement:</label>
+
+        <select id="step" >
+
+          <option value="10">1cm</option>
+
+          <option value="1">0.1cm</option>
+
+          <option value="100">10cm</option>
+
+        </select>
+
+	  </div>
+
+    </div>
+
+      <div id="frecce" class="w3-row w3-border " style="display: none;">
+
+      <div class="w3-center w3-container w3-quarter">
+
+        <img src="https://costycnc.it/foto1/stanga.png" onclick='vaistg(document.getElementById("step").value);'>
+
+      </div>
+
+            <div class="w3-center w3-container w3-quarter">
+
+        <img src="https://costycnc.it/foto1/sus.png" onclick='vaijos(document.getElementById("step").value);'>
+
+      </div>
+
+      <div class="w3-center w3-container w3-quarter">
+
+        <img src="https://costycnc.it/foto1/jos.png" onclick='vaisus(document.getElementById("step").value);'>
+
+      </div>
+
+      <div class="w3-center w3-container w3-quarter">
+
+        <img src="https://costycnc.it/foto1/dreapta.png" onclick='vaidr(document.getElementById("step").value);'>
+
+      </div>
+
+    </div>
+
+	
+
+    <div style="position:relative;left:50;">
+
+    
+
+      <div id="mydiv" >
+
+         <div id="mydivheader" style="overflow: hidden;">Click here to move</div>
+
+        
+
+            Zoom1  <input type="range" min="5" max="20" step=".01" value="19" id="myRanges" onmousemove='scale=20-this.value;svgcode.attr("viewBox","0,0,"+(scale*3000)+","+(scale*1500))' ontouchmove='scale=20-this.value;svgcode.attr("viewBox","0,0,"+(scale*3000)+","+(scale*1500));'><br>
+
+            Write  <button onclick='document.getElementById("write").click();'>Send to machine</button>
+
+	    </div>
+
+    </div>
+
+    <div style="overflow: scroll;width:300mm;height:150mm;padding-top:140px;">
+
+    <svg id="svgcode" xmlns="http://www.w3.org/2000/svg" width="3000mm" height="1500mm" viewBox="0 0 3000 1500" style="background-color:black">
+
+    </svg>
+
+    </div>
+
+</div>
+
+    <script src="part1.js"></script>
+
+    <!--                                 sfarsit program                         -->
+
+    <!--////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+    <br>
+
+    <!-- Default Statcounter code for cm6 https://www.costycnc.it/cm6 -->
+
+    <script type="text/javascript">
+
+      var sc_project = 12422181;
+
+      var sc_invisible = 0;
+
+      var sc_security = "0c6b10f1";
+
+      var scJsHost = "https://";
+
+      document.write("<sc" + "ript type = 'text/javascript'src = '" + scJsHost + "statcounter.com/counter/counter.js' > < /" + "script>");
+
+    </script>
+
+    <noscript>
+
+      <div class="statcounter">
+
+        <a title="Web Analytics" href="https://statcounter.com/" target="_blank">
+
+          <img class="statcounter" src="https://c.statcounter.com/12422181/0/0c6b10f1/0/" alt="Web Analytics">
+
+        </a>
+
+      </div>
+
+    </noscript>
+
+    <!-- End of Statcounter Code -->
+
+    <a href="https://statcounter.com/p12422181/?guest=1">View My Stats</a>
+
+    <br>
+
+    
+
+    <script src="bootstrap.bundle.min.js"></script>
+
+    <script src="part2.js"></script>
+
+    
+
+
+
+
+<!-- ANNUNCIO IN-FEED -->
+<div class="ad-container" style="clear: both;text-align:center;">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-format="fluid"
+       data-ad-layout-key="-fb+5w+4e-db+86"
+       data-ad-client="ca-pub-7971216328816212"
+       data-ad-slot="4454863636"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+
+    
+
+<section class="image-for.cut">
+
+<div class="container">
+
+  <h2>Image for cut</h2><a id="translateButton" href="https://translate.google.com/translate?sl=it&amp;tl=en&amp;u=costycnc.it/cm8" >Translate</a>
+
+  <p>Few images example to cut with costycnc foam cutter.</p>
+
+  <p>Click right on image with mouse and copy.</p>
+
+  <p>Go to Gcode box and click right and click paste.</p>
+
+  <div class="row">
+
+    <div class="col-md-3">
+
+      <div class="thumbnail">
+
+          <img src="https://www.costycnc.it/cm8/plus.png" alt="Image for test is costycnc machine cut at 90 degrees" style="width:100%">
+
+          <div class="caption">
+
+            <p>This test image is used to check if your CNC is correctly mounted at 90 degrees.</p>
+
+          </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+      <div class="thumbnail">
+
+          <img src="https://www.costycnc.it/neve/neve3.png" alt="Lights" style="width:100%">
+
+          <div class="caption">
+
+            <p>Image of low complexity to test costycnc foam cutter machine.</p>
+
+          </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+      <div class="thumbnail">
+
+        <a href="https://www.costycnc.it/foto1/41.jpg" target="_blank">
+
+          <img src="https://www.costycnc.it/foto1/41.jpg" alt="Nature" style="width:100%">
+
+          <div class="caption">
+
+            <p>Second image with low complexity to text costycnc foam cutter machine.</p>
+
+          </div>
+
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+      <div class="thumbnail">
+
+          <img src="https://www.costycnc.it/foto1/cavallo.jpg" alt="Horse image 47cmx40cm for cut with costycnc foam cutter machine" style="width:100%">
+
+          <div class="caption">
+
+            <p>Horse image for cut with costycnc foam cutter. Image have 47 cm height and 40 cm large.</p>
+
+          </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+
+
+
+<!--                      17.01.25                    -->
+
+<hr>
+
+<section class="video-presentation">
+
+    <div class="video-csty-container">
+
+      <iframe id="youtube-player" width="800" height="450" src="https://www.youtube.com/embed/UvmIo5vloLM" frameborder="0" allowfullscreen></iframe>
+
+      <hr><p><b>Clicca immagine sotto per video (click image bellow for video)</b></p><hr>
+
+      <div class="thumbnails">
+
+        <img src="https://img.youtube.com/vi/UvmIo5vloLM/0.jpg" data-video-id="UvmIo5vloLM?autoplay=1" alt="Thumbnail 1">
+
+        <img src="https://img.youtube.com/vi/C1kf7KvFcTE/0.jpg" data-video-id="C1kf7KvFcTE?autoplay=1" alt="Thumbnail 2">
+
+        <img src="https://img.youtube.com/vi/tuZNVB552p0/0.jpg" data-video-id="tuZNVB552p0?autoplay=1" alt="Thumbnail 1">
+
+        <img src="https://img.youtube.com/vi/qenZ8UBppY4/0.jpg" data-video-id="qenZ8UBppY4?autoplay=1" alt="Thumbnail 2">
+
+        <img src="https://img.youtube.com/vi/AYhrUfhR66s/0.jpg" data-video-id="AYhrUfhR66s?autoplay=1" alt="Thumbnail 1">
+
+        <img src="https://img.youtube.com/vi/sVZyphjAQgU/0.jpg" data-video-id="sVZyphjAQgU?autoplay=1" alt="Thumbnail 2">
+
+        <img src="https://img.youtube.com/vi/qqXi1Bc7Ies/0.jpg" data-video-id="qqXi1Bc7Ies?autoplay=1" alt="Thumbnail 1">
+
+      </div>
+
+    </div>
+
+</section> 
+
+<hr>
+
+
+
+<script>
+
+const thumbnails = document.querySelectorAll('.thumbnails img');
+
+const youtubePlayer = document.getElementById('youtube-player');
+
+
+
+thumbnails.forEach(thumbnail => {
+
+  thumbnail.addEventListener('click', () => {
+
+    const videoId = thumbnail.dataset.videoId;
+
+    youtubePlayer.src = `https://www.youtube.com/embed/${videoId}`;
+
+  });
+
+});
+
+</script>
+
+
+
+<!--                   End 17.01.25                       -->
+
+
+
+                  <!--########### 30.05.2023 ######################################## -->
+
+
+
+                  
+
+<!-- ANNUNCIO IN-FEED -->
+<div class="ad-container" style="clear: both;text-align:center;">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-format="fluid"
+       data-ad-layout-key="-fb+5w+4e-db+86"
+       data-ad-client="ca-pub-7971216328816212"
+       data-ad-slot="4454863636"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+
+        
+
+
+
+ <!-- About Section -->
+
+    <section class="py-5 bg-light">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-6 mb-4 mb-lg-0">
+
+                    <h2 class="fw-bold mb-4">La mia filosofia</h2>
+
+                    <div class="bg-white p-4 rounded shadow-sm">
+
+                        <p class="lead">"La vendita di questi CNC rappresenta per me non solo una fonte di sostentamento, ma anche un'opportunità per crescere e condividere la mia passione."</p>
+
+                        <p>Non si tratta di un'attività professionale in senso stretto, ma di un progetto che mi permette di vivere serenamente, dedicare tempo ai miei clienti e continuare a sperimentare. Ogni acquisto mi supporta in questo percorso e mi dà la possibilità di costruire relazioni durature con persone che condividono i miei stessi interessi.</p>
+
+                        <p class="mb-0 fw-bold">Grazie per essere parte di questa avventura!</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6">
+
+                    <div class="ratio ratio-16x9">
+
+                        <iframe src="https://www.youtube.com/embed/UvmIo5vloLM" title="Video dimostrativo CostyCNC" allowfullscreen></iframe>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Products Section -->
+
+    <section id="prodotti" class="py-5">
+
+        <div class="container">
+
+            <div class="text-center mb-5">
+
+                <h2 class="fw-bold">I Nostri Prodotti</h2>
+
+                <p class="lead text-muted">Scegli la macchina più adatta alle tue esigenze</p>
+
+            </div>
+
+            
+
+            <!-- Hobby Model -->
+
+            <div id="hobby" class="row align-items-center mb-5 product-section">
+
+                <div class="col-md-5 mb-4 mb-md-0">
+
+                    <img src="https://i.ebayimg.com/images/g/wG0AAOSw5m5nEBel/s-l1600.webp" 
+
+                         alt="CostyCNC Hobby - Macchina per taglio polistirene" 
+
+                         class="img-fluid rounded shadow">
+
+                </div>
+
+                <div class="col-md-7">
+
+                    <div class="d-flex align-items-center mb-3">
+
+                        <h3 class="fw-bold mb-0 me-3">CostyCNC Hobby</h3>
+
+                        <span class="badge bg-success">Più venduto</span>
+
+                    </div>
+
+                    <p class="lead">Ideale per progetti creativi e modellismo. Supporta polistirolo e polistirene.</p>
+
+                    
+
+                    <div class="mb-4">
+
+                        <h4 class="h5 fw-bold mb-3"><i class="bi bi-list-check me-2"></i>Specifiche Tecniche</h4>
+
+                        <div class="specs-item"><strong>Area di lavoro:</strong> 150×30×8 cm</div>
+
+                        <div class="specs-item"><strong>Alimentazione:</strong> 12V 3A </div>
+
+                        <div class="specs-item"><strong>Motori:</strong> 28BYJ-48 con driver A4988</div>
+
+                        <div class="specs-item"><strong>Scheda controllo:</strong> MKS DLC32 con WiFi, USB e lettore SD</div>
+
+                        <div class="specs-item"><strong>Filo caldo:</strong> Nichrome 0,2mm</div>
+
+                    </div>
+
+                    
+
+                    <div class="d-flex flex-wrap align-items-center buy-buttons">
+
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" class="me-2 mb-2">
+
+                            <input type="hidden" name="cmd" value="_s-xclick">
+
+                            <input type="hidden" name="hosted_button_id" value="9NV4TKW7UN7LN">
+
+                            <div class="input-group">
+
+                                <select name="os0" class="form-select form-select-sm">
+
+                                    <option value="Italia">Italia 125,00 €</option>
+
+                                    <option value="Europe">Europa 150,00 €</option>
+
+                                    <option value="World">Mondiale 200,00 €</option>
+
+                                </select>
+
+                                <button type="submit" class="btn btn-primary btn-sm">
+
+                                    <i class="bi bi-paypal"></i> Acquista
+
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                        <a href="https://www.ebay.it/itm/276615432745" target="_blank" class="btn btn-outline-primary btn-sm me-2 mb-2">
+
+                            <i class="bi bi-cart"></i> eBay
+
+                        </a>
+
+                        <a href="https://www.costycnc.it/politica-di-reso/" class="btn btn-success btn-sm mb-2">
+
+                            <i class="bi bi-truck"></i> Contrassegno
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            
+
+            <!-- Mini Model -->
+
+            <div id="mini" class="row align-items-center mb-5 product-section">
+
+                <div class="col-md-5 mb-4 mb-md-0 order-md-2">
+
+                    <img src="https://i.ebayimg.com/images/g/DCEAAOSwl75mEwxf/s-l1600.webp" 
+
+                         alt="CostyCNC Mini - Macchina per taglio polistirene" 
+
+                         class="img-fluid rounded shadow">
+
+                </div>
+
+                <div class="col-md-7 order-md-1">
+
+                    <h3 class="fw-bold mb-3">CostyCNC Mini</h3>
+
+                    <p class="lead">Perfetta per piccoli progetti e prototipazione rapida. Ideale per materiali leggeri.</p>
+
+                    
+
+                    <div class="mb-4">
+
+                        <h4 class="h5 fw-bold mb-3"><i class="bi bi-list-check me-2"></i>Specifiche Tecniche</h4>
+
+                        <div class="specs-item"><strong>Area di lavoro:</strong> 150×40×15 cm</div>
+
+                        <div class="specs-item"><strong>Alimentazione:</strong> 12V 3A</div>
+
+                        <div class="specs-item"><strong>Motori:</strong> 28BYJ-48 con driver A4988</div>
+
+                        <div class="specs-item"><strong>Scheda controllo:</strong> MKS DLC32 con WiFi, USB e lettore SD</div>
+
+                        <div class="specs-item"><strong>Filo caldo:</strong> Nichrome 0,2mm</div>
+
+                    </div>
+
+                    
+
+                    <div class="d-flex flex-wrap align-items-center buy-buttons">
+
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" class="me-2 mb-2">
+
+                            <input type="hidden" name="cmd" value="_s-xclick">
+
+                            <input type="hidden" name="hosted_button_id" value="BHJ3HT3MUE8CC">
+
+                            <div class="input-group">
+
+                                <select name="os0" class="form-select form-select-sm">
+
+                                    <option value="Italia">Italia 210,00 €</option>
+
+                                    <option value="Europa">Europa 230,00 €</option>
+
+                                    <option value="World">Mondiale 250,00 €</option>
+
+                                </select>
+
+                                <button type="submit" class="btn btn-primary btn-sm">
+
+                                    <i class="bi bi-paypal"></i> Acquista
+
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                        <a href="https://www.ebay.it/itm/275132244800" target="_blank" class="btn btn-outline-primary btn-sm me-2 mb-2">
+
+                            <i class="bi bi-cart"></i> eBay
+
+                        </a>
+
+                        <a href="https://www.costycnc.it/politica-di-reso/" class="btn btn-success btn-sm mb-2">
+
+                            <i class="bi bi-truck"></i> Contrassegno
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            
+
+            <!-- Media Model -->
+
+            <div id="media" class="row align-items-center mb-5 product-section">
+
+                <div class="col-md-5 mb-4 mb-md-0">
+
+                    <img src="https://i.ebayimg.com/images/g/YAwAAOSwWx9mExIU/s-l1600.webp" 
+
+                         alt="CostyCNC Media - Macchina per taglio polistirene" 
+
+                         class="img-fluid rounded shadow">
+
+                </div>
+
+                <div class="col-md-7">
+
+                    <h3 class="fw-bold mb-3">CostyCNC Media</h3>
+
+                    <p class="lead">Adatta per progetti più grandi e professionali. Supporta materiali espansi e leggeri.</p>
+
+                    
+
+                    <div class="mb-4">
+
+                        <h4 class="h5 fw-bold mb-3"><i class="bi bi-list-check me-2"></i>Specifiche Tecniche</h4>
+
+                        <div class="specs-item"><strong>Area di lavoro:</strong> 250×50×30 cm</div>
+
+                        <div class="specs-item"><strong>Alimentazione:</strong> 24V 5A</div>
+
+                        <div class="specs-item"><strong>Motori:</strong> NEMA 17 con driver A4988</div>
+
+                        <div class="specs-item"><strong>Scheda controllo:</strong> MKS DLC32 con WiFi, USB e lettore SD</div>
+
+                        <div class="specs-item"><strong>Filo caldo:</strong> Nichrome 0,2mm</div>
+
+                    </div>
+
+                    
+
+                    <div class="d-flex flex-wrap align-items-center buy-buttons">
+
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" class="me-2 mb-2">
+
+                            <input type="hidden" name="cmd" value="_s-xclick">
+
+                            <input type="hidden" name="hosted_button_id" value="FTMD3SQ6CGK7W">
+
+                            <div class="input-group">
+
+                                <select name="os0" class="form-select form-select-sm">
+
+                                    <option value="from Italia">Italia 410,00 €</option>
+
+                                    <option value="from Europe">Europa 430,00 €</option>
+
+                                    <option value="all the world">Mondiale 460,00 €</option>
+
+                                </select>
+
+                                <button type="submit" class="btn btn-primary btn-sm">
+
+                                    <i class="bi bi-paypal"></i> Acquista
+
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                        <a href="https://www.ebay.it/itm/274881085208" target="_blank" class="btn btn-outline-primary btn-sm me-2 mb-2">
+
+                            <i class="bi bi-cart"></i> eBay
+
+                        </a>
+
+                        <a href="https://www.costycnc.it/politica-di-reso/" class="btn btn-success btn-sm mb-2">
+
+                            <i class="bi bi-truck"></i> Contrassegno
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            
+
+            <!-- XBig Model -->
+
+            <div id="xbig" class="row align-items-center product-section">
+
+                <div class="col-md-5 mb-4 mb-md-0 order-md-2">
+
+                    <img src="https://i.ebayimg.com/images/g/iD0AAOSw95xnlhIy/s-l1600.webp" 
+
+                         alt="CostyCNC XBig - Macchina per taglio polistirene" 
+
+                         class="img-fluid rounded shadow">
+
+                </div>
+
+                <div class="col-md-7 order-md-1">
+
+                    <h3 class="fw-bold mb-3">CostyCNC XBig</h3>
+
+                    <p class="lead">Progettata per progetti industriali e professionali. Offre un'area di lavoro ampia.</p>
+
+                    
+
+                    <div class="mb-4">
+
+                        <h4 class="h5 fw-bold mb-3"><i class="bi bi-list-check me-2"></i>Specifiche Tecniche</h4>
+
+                        <div class="specs-item"><strong>Area di lavoro:</strong> 250×90×90 cm</div>
+
+                        <div class="specs-item"><strong>Alimentazione:</strong> 12V + 60V 5A</div>
+
+                        <div class="specs-item"><strong>Motori:</strong> NEMA 17 con driver A4988</div>
+
+                        <div class="specs-item"><strong>Scheda controllo:</strong> MKS DLC32 con WiFi, USB e lettore SD</div>
+
+                        <div class="specs-item"><strong>Filo caldo:</strong> Nichrome 0,2mm</div>
+
+                    </div>
+
+                    
+
+                    <div class="d-flex flex-wrap align-items-center buy-buttons">
+
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" class="me-2 mb-2">
+
+                            <input type="hidden" name="cmd" value="_s-xclick">
+
+                            <input type="hidden" name="hosted_button_id" value="5U3LFV52FU29U">
+
+                            <div class="input-group">
+
+                                <select name="os0" class="form-select form-select-sm">
+
+                                    <option value="from Italia">Italia 600,00 €</option>
+
+                                    <option value="from Europe">Europa 630,00 €</option>
+
+                                    <option value="all the world">Mondiale 670,00 €</option>
+
+                                </select>
+
+                                <button type="submit" class="btn btn-primary btn-sm">
+
+                                    <i class="bi bi-paypal"></i> Acquista
+
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                        <a href="https://www.ebay.it/itm/274881043594" target="_blank" class="btn btn-outline-primary btn-sm me-2 mb-2">
+
+                            <i class="bi bi-cart"></i> eBay
+
+                        </a>
+
+                        <a href="https://www.costycnc.it/politica-di-reso/" class="btn btn-success btn-sm mb-2">
+
+                            <i class="bi bi-truck"></i> Contrassegno
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+                   <!--########### sfarsit 30.05.2023 ######################################## -->
+
+
+
+<textarea id="textarea" name="w3review" rows="4" cols="50" style="display:none" >data:application/octet-stream;base64,AAEAAAATAQAABAAwR1BPU67NxKYAAQakAAAByEdTVUIAGQAMAAEIbAAAABBMVFNIk+2YHgAABPQAAAC7T1MvMmZbFjUAAAG4AAAAYFZETVhlJWyQAAAFsAAABeBjbWFwxG7jewAAHHwAAAXGY3Z0IAD3A8cAACR0AAAAImZwZ20GWZw3AAAiRAAAAXNnbHlmxrbWHAAAJJgAANewaGRteCQ8giUAAAuQAAAQ7GhlYWQfae95AAABPAAAADZoaGVhBvkCTgAAAXQAAAAkaG10eEtf+w8AAAIYAAAC3Gtlcm4IqgnKAAD9uAAAAhBsb2Nhfne0ugAA/EgAAAFwbWF4cALQBNoAAAGYAAAAIG5hbWVc/5TFAAD/yAAABUBwb3N06+bAEgABBQgAAAGacHJlcFp2Oz8AACO4AAAAugABAAAAAQAAnfVwbV8PPPUAGQPoAAAAAN4aViYAAAAA3hpWSf7O/ngFOgOsAAAACQACAAAAAAAAAAEAAALu/wYAAATe/s79sgU6AAEAAAAAAAAAAAAAAAAAAAC3AAEAAAC3AOgABwD0AAUAAQAAAAAACgAAAgAC/AACAAEAAwHRAZAABQAEArwCigAAAIwCvAKKAAAB3QAyAPoAAAAAAAAAAAAAAACAAAAnQAAASgAAAAAAAAAAT0NUIABAAAD7AgLu/wYAAAOsAYgAAAABAAAAAAF8AyIAAAAgAAIAxwAAAAAAAADHAAAAxwAAAkEAEgKTABwDWwAXA5kAGQFwAB0C9wAVAw8AEwJwACoEcwAYA40AFwLuACADOAASAtMAIAM4ABwDHQAVAuEAHAOYABsC/wAcBE8AIQK2ABYDawAbA6AAHwFB/9UBRP/bAPn/0wFf/9IA8//TAJX/JwE+/5IBQP/UAIn/0ACJ/s4BSf/VAL//5wG9/9ABSf/XAQH/3wE6/5EBQP/QANX/6wDF/7UApf/eATL/2gDq/+IBc//RAPv/vQEp/4YBBv8EA/kAFQGGAAYA4AAGAeAABwHTAAMBlgADAd8ABQGMAAUBngAHAZwAAQGMAAMCBgAaAXkAFwHMABMBagAYAeYAFwFAABMBIAA/AQAAFAH2ABoA3wAgAiMAFACSAHEAvAAXAnIAGQKnABcCRQAYAtYAGQDoABsBIQAaAaAAFQGlABEAkQAhAJUAFgDtABQB2QAjARQAFwEdABsBaAAYAXYAFQFqABcBTQAXAk4AGgCGABQAjgAUAKcAGQDEAB0AqgAVAIEAGwCIABUBSf/VAUn/1QFJ/9UBSf/VAUn/1QFJ/9UA+f/TAPP/0wDz/9MA8//TAPP/0wCJ/9AAif/QAIn/0ACJ/9ABSf/XAQH/3wEB/98BAf/fAQH/3wEB/98BAf/fATL/2gEy/9oBMv/aATL/2gEp/4YBKf+GAaz/1QODAAkDgwAJA4MACQODAAkDgwAJA4MACQTeAAkCgQAVAkEAEgJBABICQQASAkEAEgFwAB0BcAAdAXAAHQFwAB0D+QAVA40AFwLuACAC7gAgAu4AIALuACAC7gAgAu4AIAOYABsDmAAbA5gAGwOYABsDawAbAPsAIQIp//wBswAhAKMAEwEe/ycBVP8nAnAAKgC//9UDoAAfAQb/BAMdABUEMwAgAMX/tQHJ/98DawAbARQAFwHZACMAkABxASEAPwEkAD8DgwAJA2b/+AKBABUAAAC3AQEBAUwBTAFEAUQzN0RMNzs7NwFMAQEBAQEiREwBNyYvAQEBAQEvATcBAQEBAQEhOwEBTBxMAUxEAQEBAUw7REwBAUwBAQEBTAEBASIvL0wBAQFERDc7OwEBAURMM0QBAUQ7AQEiAQEBAQEBAQEBAQEBAQFEAQEBAQEBAQEBAQEBAUwBAQEBAQEzAQEBAQEBAQEBHAEBAQEBAQEBAQEBAQFMOwEBAQEBAQEBAQEBAQEBAQEBTDMvAAAAAAEAAQEBAQEADAD4CP8ACAAI//wACQAJ//wACgAK//wACwAL//sADAAM//sADQAN//oADgAO//oADwAP//oAEAAQ//kAEQAQ//kAEgAR//gAEwAS//gAFAAT//gAFQAU//cAFgAV//cAFwAW//YAGAAX//YAGQAY//YAGgAZ//UAGwAa//UAHAAb//UAHQAc//QAHgAd//QAHwAe//MAIAAf//MAIQAg//MAIgAg//IAIwAh//IAJAAi//EAJQAj//EAJgAk//EAJwAl//AAKAAm//AAKQAn/+8AKgAo/+8AKwAp/+8ALAAq/+4ALQAr/+4ALgAs/+0ALwAt/+0AMAAu/+0AMQAv/+wAMgAv/+wAMwAw/+wANAAx/+sANQAy/+sANgAz/+oANwA0/+oAOAA1/+oAOQA2/+kAOgA3/+kAOwA4/+gAPAA5/+gAPQA6/+gAPgA7/+cAPwA8/+cAQAA9/+YAQQA+/+YAQgA//+YAQwA//+UARABA/+UARQBB/+QARgBC/+QARwBD/+QASABE/+MASQBF/+MASgBG/+IASwBH/+IATABI/+IATQBJ/+EATgBK/+EATwBL/+EAUABM/+AAUQBN/+AAUgBO/98AUwBP/98AVABP/98AVQBQ/94AVgBR/94AVwBS/90AWABT/90AWQBU/90AWgBV/9wAWwBW/9wAXABX/9sAXQBY/9sAXgBZ/9sAXwBa/9oAYABb/9oAYQBc/9kAYgBd/9kAYwBe/9kAZABe/9gAZQBf/9gAZgBg/9gAZwBh/9cAaABi/9cAaQBj/9YAagBk/9YAawBl/9YAbABm/9UAbQBn/9UAbgBo/9QAbwBp/9QAcABq/9QAcQBr/9MAcgBs/9MAcwBt/9IAdABu/9IAdQBu/9IAdgBv/9EAdwBw/9EAeABx/9AAeQBy/9AAegBz/9AAewB0/88AfAB1/88AfQB2/88AfgB3/84AfwB4/84AgAB5/80AgQB6/80AggB7/80AgwB8/8wAhAB9/8wAhQB+/8sAhgB+/8sAhwB//8sAiACA/8oAiQCB/8oAigCC/8kAiwCD/8kAjACE/8kAjQCF/8gAjgCG/8gAjwCH/8cAkACI/8cAkQCJ/8cAkgCK/8YAkwCL/8YAlACM/8UAlQCN/8UAlgCN/8UAlwCO/8QAmACP/8QAmQCQ/8QAmgCR/8MAmwCS/8MAnACT/8IAnQCU/8IAngCV/8IAnwCW/8EAoACX/8EAoQCY/8AAogCZ/8AAowCa/8AApACb/78ApQCc/78ApgCd/74ApwCd/74AqACe/74AqQCf/70AqgCg/70AqwCh/7wArACi/7wArQCj/7wArgCk/7sArwCl/7sAsACm/7sAsQCn/7oAsgCo/7oAswCp/7kAtACq/7kAtQCr/7kAtgCs/7gAtwCt/7gAuACt/7cAuQCu/7cAugCv/7cAuwCw/7YAvACx/7YAvQCy/7UAvgCz/7UAvwC0/7UAwAC1/7QAwQC2/7QAwgC3/7MAwwC4/7MAxAC5/7MAxQC6/7IAxgC7/7IAxwC8/7EAyAC8/7EAyQC9/7EAygC+/7AAywC//7AAzADA/7AAzQDB/68AzgDC/68AzwDD/64A0ADE/64A0QDF/64A0gDG/60A0wDH/60A1ADI/6wA1QDJ/6wA1gDK/6wA1wDL/6sA2ADM/6sA2QDM/6oA2gDN/6oA2wDO/6oA3ADP/6kA3QDQ/6kA3gDR/6gA3wDS/6gA4ADT/6gA4QDU/6cA4gDV/6cA4wDW/6cA5ADX/6YA5QDY/6YA5gDZ/6UA5wDa/6UA6ADb/6UA6QDc/6QA6gDc/6QA6wDd/6MA7ADe/6MA7QDf/6MA7gDg/6IA7wDh/6IA8ADi/6EA8QDj/6EA8gDk/6EA8wDl/6AA9ADm/6AA9QDn/58A9gDo/58A9wDp/58A+ADq/54A+QDr/54A+gDr/54A+wDs/50A/ADt/50A/QDu/5wA/gDv/5wA/wDw/5wAAAAXAAAAvAkLAgACAgUGCQgDBwcGCggIBwYHBwcIBwoGCAgCBAMDAwIDAwEBAwIEAwMDAwICAQMDBAIDAwoFAgYFBAQEBAUFBgUEAwUDAwIFAwUBAgYHBggCAwQFAgIDBQIDAwUEBAYBAQIDAgECAwMDAwMDAgICAgIBAQEBAwICAgICAgMDAwMDAwUICAgICAgLBgUFBQUDAwMDCggHBwcHBwcICAgICAIGBgEDAwYCCAIHCgIECAIEAQMDCAkGAAAACgwCAAICBgcKCQQICAcLCQkIBwgIBwoICwcJCQMEBAQDAQQDAQEDAgQDAwMDAgICAwMFAwMDCwUCBgYEBQQEBQUGBQUEBgMDAwUDBQECBggGCAIDBAUCAgMGAwMEBQUEBwEBAgMCAQIDAwMDAwMCAgICAgEBAQEDAwMDAwMDAwMDAwMDBQkJCQkJCQwGBgYGBgQEBAQLCQgICAgICAkJCQkJAwcGAgMDBgIJAwgLAgUJAwUBAwMJCgYAAAALDgIAAgIGBwsKBAgJBwwKCQkHCQkICggMCAoKAwQEBAQCBAQCAgQCBQQEAwQCAgIDBAUDAwMMBgIGBgQFBAUGBQcFBQQGBAMDBgMGAgIHCAYJAwMFBQICAwYDAwQFBQUHAQICAwIBAwQEBAQEBAMDAwMDAgICAQQDAwMDAwMDAwMDAwMGCgoKCgoKDgcGBgYGBAQEBAwKCAgICAgICgoKCgoDBwYCAwQHAgoDCQwCBQoDBQIDAwoLBwAAAAwPAgACAgcIDAsFCQoHDQoKCggKCQkLCQ0ICwsDBQQEBAIEBAICBAIFBAQEBAMCAgQEBQMEBA0GAwcHBQYFBQYGBwYGBAYEAwMGAwcCAggJBwoDAwUGAgIEBwMDBAYFBQgCAgMDAgIDBAQEBAQEAwMDAwMCAgIBBAMDAwMDAwQEBAQEBAYLCwsLCwsPCAcHBwcEBAQEDQsJCQkJCQkLCwsLCwMIBgIDBAcCCwMKDQIFCwMGAgMECgwIAAAADRADAAMDBwkMDAUKCwgODAsLCQsKCgwKDgkLDAQFBAUEAgQEAgIEAgUEBAQEAwMCBAQGAwQEDgYDBwcFBgUFBwYIBgYFBwQEAwcEBwICCQoHCwMEBQYDAgQHBAQFBgYFCAICAwMCAgMEBAQEBAQDAwMDAwICAgEEAwMDAwMDBAQEBAQEBgwMDAwMDBAICAgICAUFBQUODAoKCgoKCgwMDAwLAwgGAgQECAIMAwoOAwYLBAYCBAQMDAgAAAAPEwMAAwMJCg4OBgsMChEODAwKDQsLDQwRCg0OBQUFBQQDBQUCAgUDBwUEBQUDAwIFBAYEBAQQBwMICAYHBgYHBwkHBwUHBQQECAQIAgMKCwkMAwQGBwMDBAgEBAUGBgYJAgIDBAMCAwUFBQUFBQQEBAQEAgICAQUEBAQEBAQFBQUFBAQHDQ0NDQ0NEwoJCQkJBgYGBhAOCwsLCwsLDg4ODg0ECQcCBAUJAw4EDBADBw0EBwIEBA4OCgAAABAUAwADAwkLDw8GDA0LEg4NDQsNDAwODBILDg8FBQUGBQIFBQICBQMIBQUFBQMDAwUFBgQFBBEIBAkIBwgGBwgHCQcHBggFBQQIBAkCAwoMCg0EBQcHAwMECAQFBgcHBgoCAgMEAwIDBQUFBQUFBAQEBAQCAgIBBQQEBAQEBAUFBQUFBQgODg4ODg4UCgkJCQkGBgYGEQ8MDAwMDAwPDw8PDgQKBwMFBQoDDwQNEQMHDgQIAgUFDg8KAAAAERUDAAMDCgsQEAcNDgoTDw4ODA4NDRANEwwPEAUGBQYFAwUFAgIGAwgGBQUFBAMDBQUHBAUFEggECQkHCAcHCAcKBwgGCAUFBAkECQIDCwwKDQQFBwcDAwQJBQUGBwcHCgICAgQDAgMGBgYGBgYEBAQEBAICAgEGBAQEBAQEBQUFBQUFCA8PDw8PDxULCgoKCgYGBgYSDw0NDQ0NDRAQEBAPBAoHAwUGCwMQBA4SAwgPBQgCBQUPDwsAAAATGAQABAQLDRESBg4PDBURDxANDw8OEQ8VDRES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BiMiJjU0NicyFhUUByImNTQ2KAwSDAYSCQcIBgQLNiYNCQMHDRMWCBUzGhwnAwMQFRUGBQdTCg8UDQ4QFUYNEBwSEREBcBAXGwwgRiECFBscCQkBWWokEAQELDo9FDNBJyALDg8/SkgXEQmDAg4HDREQCQ4OAwwMHAMQCwwQAAD////X//8BgAH2AiYAJwAAAAYAYVAAAAD////f//8BLgIMAiYAKAAAAAYAXz0AAAD////f//8BLgIIAiYAKAAAAAYAYDoAAAD////f//8BLgIJAiYAKAAAAAYAYywAAAD////f//8BLgH2AiYAKAAAAAYAYSwAAAD////f//8BLgH2AiYAKAAAAAYAYhoAAAD////f/9IBLgFzAiYAKAAAAEYARwgTHREdCAAA////2v//AVsCDAImAC4AAAAGAF9WAAAA////2v//AVsCCAImAC4AAAAGAGBSAAAA////2v//AVsCCQImAC4AAAAGAGNEAAAA////2v//AVsB9gImAC4AAAAGAGIzAAAA////hv6AAVYCCAImADIAAAAGAGBOAAAA////hv6AAVYB9gImADIAAAAGAGIuAAAAAAT/1QAAAd4BdAAxAEIAbgCCAia7ADwABgARAAQruwBIAAYABwAEK7sAaQAHAH4ABCtBFQAGAEgAFgBIACYASAA2AEgARgBIAFYASABmAEgAdgBIAIYASACWAEgACl1BBQClAEgAtQBIAAJdugAJAAcASBESOboAGwAHAEgREjm6ADQABwBIERI5uAA0L7kAJAAG9EEVAAYAPAAWADwAJgA8ADYAPABGADwAVgA8AGYAPAB2ADwAhgA8AJYAPAAKXUEFAKUAPAC1ADwAAl24AEgQuQBhAAb0ugB5ADQAJBESOUEFAKoAfgC6AH4AAl1BFQAJAH4AGQB+ACkAfgA5AH4ASQB+AFkAfgBpAH4AeQB+AIkAfgCZAH4ACl24AGkQuACE3AC4ABYvuAAhL7gAZi+4AABFWLgAAC8buQAAAAk+WbgAAEVYuAACLxu5AAIACT5ZuAAARVi4AA4vG7kADgAJPlm4AABFWLgAXC8buQBcAAk+WboACQAOABYREjm4ACEQuAAX0LgAFy+4ACEQuABu3LoAGwAhAG4REjm4AAAQuQBLAAT0QSEABwBLABcASwAnAEsANwBLAEcASwBXAEsAZwBLAHcA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</textarea><br>
+
+<div> <script src="https://efreecode.com/js.js" id="eXF-costycn1-0" async defer></script></div>
+
+<div style="text-align:center"><p>06.02.25</p>
+
+<p><a href="https://www.costycnc.it/mks/index.html.gz">index.html.gz</a></p>
+
+<p><a href="https://www.costycnc.it/mks/probe.html.gz">probe.html.gz</a></p></div>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	      <div style="text-align: right;">
+
+  <a href="https://www.costycnc.it/onda" target="_blank">Onda</a>
+
+  <a href="https://www.costycnc.it/stroke1" target="_blank">Stroke</a>
+
+  <a href="https://www.costycnc.it/svg10" target="_blank">Text</a>
+
+  <a href="https://www.costycnc.it/teste" target="_blank">Foglio</a>
+
+  <a href="https://www.costycnc.it/imgtonero" target="_blank">Imgtonero</a>
+
+  <a href="https://www.costycnc.it/editor/stampa-modifica" target="_blank">Stampa-modifica</a>
+
+</div> 
+
+<div style="display: flex;background-color: DodgerBlue;align-items: center;text-align:center;">
+
+<div style="flex:2;  background-color: #f1f1f1; margin: 10px;padding: 20px;font-size: 30px;"><h5>
+
+    <p>CostyCNC program offline, click download button, unzip and click index.html</p>
+
+    <p>CostyCNC program offline, clicca sul pulsante "Download", decomprimi il file e clicca su "index.html".</p>
+
+
+
+</h5></div>
+
+<div style="flex:1;  background-color: #f1f1f1; margin: 10px;padding: 20px;font-size: 30px;">
+
+<h2><a href="https://www.costycnc.it/cm8/costycnc-img-to-gcode.zip">DOWNLOAD</a></h2>
+
+</div>
+
+</div>
+<hr>
+<!-- ANNUNCIO IN-FEED -->
+<div class="container" style="clear: both;text-align:center;">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-format="fluid"
+       data-ad-layout-key="-fb+5w+4e-db+86"
+       data-ad-client="ca-pub-7971216328816212"
+       data-ad-slot="4454863636"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+<hr>
+
+<div class="w3-container w3-center">
+
+  <div class="w3-bar">
+
+      
+
+      <a href="https://translate.google.com/translate?sl=it&amp;tl=en&amp;u=costycnc.it" class="w3-bar-item w3-button" onclick="fbq('track', this.dataset.fbq);" data-fbq="Translate" id="translateButton" >Translate</a>
+
+
+
+    <a href="https://www.costycnc.it/editor" class="w3-bar-item w3-button">Editor</a>
+
+
+
+    <a href="https://www.costycnc.it/pezzi/3index.html" class="w3-bar-item w3-button">Pezzi di ricambio</a>
+
+
+
+    <div class="w3-dropdown-hover">
+
+
+
+      <button class="w3-button">Miei programmi</button>
+
+
+
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+
+
+
+        <a href="https://www.costycnc.it/cm8" class="w3-bar-item w3-button">Costycnc-gcodesender</a>
+
+
+
+        <a href="https://www.costycnc.it/stroke2" class="w3-bar-item w3-button">Linea contorno e svg</a>
+
+
+
+        <a href="https://www.costycnc.it/svg10" class="w3-bar-item w3-button">Portaconfetti nome</a>
+
+
+
+        <a href="https://www.costycnc.it/circle" class="w3-bar-item w3-button">Circle</a>
+
+
+
+        <a href="https://www.costycnc.it/rect" class="w3-bar-item w3-button">Rect</a>
+
+
+
+        <a href="https://www.costycnc.it/foto1" class="w3-bar-item w3-button">Creazioni da tagliare</a>
+
+
+
+        <a href="https://www.costycnc.it/foto" class="w3-bar-item w3-button">Creazioni tagliate</a>
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+    <div class="w3-dropdown-hover">
+
+
+
+      <button class="w3-button">Programmi utili</button>
+
+
+
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+
+
+
+        <a href="https://lasergrbl.com/" class="w3-bar-item w3-button">Lasergrbl</a>
+
+
+
+        <a href="https://winder.github.io/ugs_website/" class="w3-bar-item w3-button">UGS(java)</a>
+
+
+
+        <a href="https://www.mydevice.io/" class="w3-bar-item w3-button">Dpi device</a>
+
+
+
+        <a href="https://geargenerator.com" class="w3-bar-item w3-button">Gear generator</a>
+
+
+
+        <a href="https://www.diyrcwings.com/app/" class="w3-bar-item w3-button">RC WINGS</a>
+
+        <a href=" https://www.serialterminal.com/" class="w3-bar-item w3-button"> serialterminal.com/</a>
+
+       
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+    <div class="w3-dropdown-hover">
+
+
+
+      <button class="w3-button">Programmi grafica</button>
+
+
+
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+
+
+
+              <a href="https://inkscape.org/" class="w3-bar-item w3-button">Inkscape</a>
+
+
+
+              <a href="https://costycnc.it/paint" class="w3-bar-item w3-button">Paint online</a>
+
+
+
+              <a href="https://editor.method.ac/" class="w3-bar-item w3-button">Method Draw</a>
+
+
+
+              <a href="http://www.clker.com/inc/svgedit/svg-editor.html" class="w3-bar-item w3-button">SVG-edit</a>
+
+
+
+              <a href="https://vectorpaint.yaks.co.nz/" class="w3-bar-item w3-button">Vector Paint</a>
+
+
+
+              <a href="https://www.drawsvg.org/drawsvg.html" class="w3-bar-item w3-button">Drawing Svg</a>
+
+
+
+              <a href="https://www.vecteezy.com/editor" class="w3-bar-item w3-button">Vecteezy Editor</a>
+
+
+
+              <a href="https://vectr.com/" class="w3-bar-item w3-button">Vectr</a>
+
+
+
+              <a href="https://boxy-svg.com/app" class="w3-bar-item w3-button">Boxy SVG</a>
+
+
+
+              <a href="https://www.rollapp.com/app/inkscape" class="w3-bar-item w3-button">RollApp / Inkscape</a>
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+	
+
+              <a href="https://www.youtube.com/watch?v=0xkknITxyqY" class="w3-bar-item w3-button">Video macchina</a>
+
+
+
+          <a href="https://costycnc1.blogspot.com/" class="w3-bar-item w3-button">Tutoriale</a>
+
+          
+
+          
+
+          
+
+          
+
+
+
+    <div class="w3-dropdown-hover">
+
+
+
+      <button class="w3-button">Social Costycnc</button>
+
+
+
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+
+
+
+              <a href="https://www.facebook.com/costelcnc" class="w3-bar-item w3-button">Pagina facebook</a>
+
+              <a href="https://www.facebook.com/groups/2260525320891608" class="w3-bar-item w3-button">Gruppo facebook aperto</a>
+
+              <a href="https://www.facebook.com/groups/1674448389529100" class="w3-bar-item w3-button">Gruppo facebook chiuso</a>
+
+              <a href="https://www.youtube.com/@bobyca2003" class="w3-bar-item w3-button">Youtube official</a>
+
+              <a href="https://www.youtube.com/@costycnc" class="w3-bar-item w3-button">Youtube private</a>
+
+              <a href="https://github.com/costycnc" class="w3-bar-item w3-button">Github</a>
+
+              <hr>
+
+              <a href="https://www.ebay.it/str/costycnc" class="w3-bar-item w3-button">Ebay</a>
+
+
+
+
+
+      </div>
+
+
+
+    </div>
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+
+        <input type="hidden" name="cmd" value="_cart">
+
+        <input type="hidden" name="business" value="9CWAFS4DYSSB8">
+
+        <input type="hidden" name="display" value="1">
+
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+
+        </form>
+
+
+
+           <!--div class="w3-dropdown-hover">
+
+
+
+              <button class="w3-button">Supporto</button>
+
+
+
+              <div class="w3-dropdown-content w3-bar-block w3-card-4">
+
+
+
+              <a href="https://youtu.be/0lovlg5-gow" class="w3-bar-item w3-button">6</a>
+
+
+
+              <a href="https://youtu.be/VDl1H5UtaYw" class="w3-bar-item w3-button">7</a>
+
+
+
+              <a href="https://youtu.be/M3JqsfpbHB0" class="w3-bar-item w3-button">8</a>
+
+
+
+              <a href="https://youtu.be/JJaYwIBw9jE" class="w3-bar-item w3-button">9</a>
+
+
+
+              <a href="https://youtu.be/xcrFBSwdMyc" class="w3-bar-item w3-button">10</a>
+
+
+
+              </div>
+
+
+
+            </div>
+
+
+
+                      
+
+
+
+            <div class="w3-dropdown-hover">
+
+
+
+              <button class="w3-button">altro</button>
+
+
+
+                  <div class="w3-dropdown-content w3-bar-block w3-card-4">
+
+
+
+                  <a href="https://youtu.be/0lovlg5-gow" class="w3-bar-item w3-button">1</a>
+
+
+
+                  <a href="https://youtu.be/VDl1H5UtaYw" class="w3-bar-item w3-button">2</a>
+
+
+
+                  <a href="https://youtu.be/M3JqsfpbHB0" class="w3-bar-item w3-button">3</a>
+
+
+
+                  <a href="https://youtu.be/JJaYwIBw9jE" class="w3-bar-item w3-button">4</a>
+
+
+
+                  <a href="https://youtu.be/xcrFBSwdMyc" class="w3-bar-item w3-button">5</a>
+
+
+
+                  </div>
+
+
+
+            </div-->
+
+
+
+
+
+          <!--       search in my site     -->
+
+
+
+          <script async src="https://cse.google.com/cse.js?cx=003792241127844500372:a664janitbq"></script>
+
+
+
+          <div class="gcse-search"></div>
+
+
+
+  </div>
+
+
+
+  
+
+
+
+</div>
+
+
+
+        <!--                               sfarsit menu                    -->
+
+
+
+        
+
+</body>
+
+
+
+</html>
